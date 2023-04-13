@@ -1,22 +1,26 @@
 import React from 'react'
 
-const VisualModel = ({tallimetroimg, imagensexo, size}) => {
+const VisualModel = ({tallimetroimg, imagensexo}) => {
   return (
-    <div className="col-8">
-      <div className="h-75">
-      <img 
+    <div className="col-sm-12 col-md-8 d-flex justify-content-center">
+   
+        <img 
             className=''
+            alt='tallimetro'
             src={tallimetroimg}
-            height={size}  
+            width={'120px'}
+            height={'320px'}
         />
 
         <img 
               className=''
+              alt='person'
               src={imagensexo}
-              height={'65%'}
+              width={'120px'}
+              height={'320px'}
           /> 
-      </div>  
-    </div>
+    </div>  
+    
   )
 }
 

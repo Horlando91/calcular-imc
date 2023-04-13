@@ -1,4 +1,3 @@
-import  Formulario from "./components/Formulario";
 import VariosContainer from "./pages/VariosContainer";
 
 function App() {
