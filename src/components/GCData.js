@@ -1,7 +1,16 @@
 import React from 'react'
 
-const GCData = ({gc, tipoGc}) => {
-  const color = gc>25? 'red' : 'black';
+const GCData = ({gc, tipoGc, sexo}) => {
+  let color="";
+
+  if (sexo==='masculino') {
+    color = gc>25? 'red' : 'black';
+  }
+  else{
+    color = gc>32? 'red' : 'black';
+  }
+
+
 
   return (
     <div>

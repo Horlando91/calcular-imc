@@ -1,5 +1,4 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
 
  const Formulario = ({onChange, estatura, edad, peso, sexo, onSubmit, resetValues, errorstate}) => (
  

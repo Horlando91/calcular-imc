@@ -98,16 +98,16 @@ const resetValues = () =>{
 const tipoGrasaCorporal =(gc) =>{
  
   if (state.sexo==='femenino') {
-    if ((gc>=10 && gc<=13)) {
+    if ((gc>=10 && gc<=13.99)) {
       return 'grasa esencial';
     }
-    else if ((gc>=14 && gc<=20)) {
+    else if ((gc>=14 && gc<=20.99)) {
       return 'atleta';
     }
-    else if ((gc>=21 && gc<=24)) {
+    else if ((gc>=21 && gc<=24.99)) {
       return 'fitness';
     }
-    else if ((gc>=25 && gc<=31)) {
+    else if ((gc>=25 && gc<=31.99)) {
       return 'aceptable';
     }
     else if ((gc>32)) {
@@ -119,16 +119,16 @@ const tipoGrasaCorporal =(gc) =>{
   }
 
   if (state.sexo==='masculino') {
-    if ((gc>=2 && gc<=5)) {
+    if ((gc>=2 && gc<=5.99)) {
       return 'grasa esencial';
     }
-    else if ((gc>=6 && gc<=13)) {
+    else if ((gc>=6 && gc<=13.99)) {
       return 'atleta';
     }
-    else if ((gc>=14 && gc<=17)) {
+    else if ((gc>=14 && gc<=17.99)) {
       return 'fitness';
     }
-    else if ((gc>=18 && gc<=24)) {
+    else if ((gc>=18 && gc<=24.99)) {
       return 'aceptable';
     }
     else if ((gc>25)) {
@@ -204,6 +204,7 @@ const createForm = async () => {
         <GCData
                 gc={gc}
                 tipoGc={tipoGc}
+                sexo={state.sexo}
         />
 
         {gc !=0 &&
