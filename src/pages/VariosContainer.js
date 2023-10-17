@@ -8,6 +8,7 @@ import GCData from '../components/GCData'
 import GCPercentageTable from '../components/GCPercentageTable'
 import jsPDF from 'jspdf'
 import * as moment from 'moment';
+import NavBar from '../components/NavBar'
 
 
 const VariosContainer = () => {
@@ -179,10 +180,10 @@ const createForm = async () => {
 
   return (
    <React.Fragment>
-        <Title
-                title={'Calcula Tu Grasa Corporal'}
-                position={"text-center"}
-        />
+        
+
+        <NavBar/>
+
         <DataUser
                   estatura={state.estatura}
                   edad={state.edad}
