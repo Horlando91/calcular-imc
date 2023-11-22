@@ -12,7 +12,6 @@ import React from 'react'
                   aria-describedby="estaturaHelp"
                   onChange={e => onChange(e.target.value, 'estatura')}
                   value={estatura}
-                  min={0}
                   />
 
           <span className='text-danger'>{errorstate.estatura===''?  null : errorstate.estatura }</span>
