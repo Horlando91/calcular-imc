@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import DataUser from '../components/DataUser'
-import Title from '../components/Title'
-import tallimetroimg from '../images/tallimetro_movil.png'
-import hombre from '../images/hombre.png'
-import mujer from '../images/mujer.png'
-import GCData from '../components/GCData'
-import GCPercentageTable from '../components/GCPercentageTable'
-import jsPDF from 'jspdf'
+import React, { useState } from 'react';
+import DataUser from '../components/DataUser';
+import Title from '../components/Title';
+import tallimetroimg from '../images/tallimetro_movil.png';
+import hombre from '../images/hombre.png';
+import mujer from '../images/mujer.png';
+import GCData from '../components/GCData';
+import GCPercentageTable from '../components/GCPercentageTable';
+import jsPDF from 'jspdf';
 import * as moment from 'moment';
-import NavBar from '../components/NavBar'
+import NavBar from '../components/NavBar';
 
 
 const VariosContainer = () => {
@@ -42,19 +42,27 @@ const comprobarDatos = () => {
   var flag='f';
 
   if (state.estatura<1) {
-    setErrorState((errorstate)=> ({ ...errorstate, estatura: "Estatura incorrecta" }));
+    setErrorState((errorstate)=> ({ ...errorstate, 'estatura': "Estatura incorrecta" }));
     flag='v';
+  }else{
+    setErrorState((errorstate)=> ({ ...errorstate, 'estatura': "" }));
   }
 
   if (state.edad<1) {
-    setErrorState((errorstate)=> ({ ...errorstate, edad: "Edad incorrecta" }));
+    setErrorState((errorstate)=> ({ ...errorstate, 'edad': "Edad incorrecta" }));
     flag='v';
+  }else{
+    setErrorState((errorstate)=> ({ ...errorstate, 'edad': "" }));
   }
 
-  if (state.peso===0 || state.peso<0) {
-    setErrorState((errorstate)=> ({ ...errorstate, peso: "Peso incorrecto" }));
+  if (state.peso==0 || state.peso<0) {
+    setErrorState((errorstate)=> ({ ...errorstate, 'peso': "Peso incorrecto" }));
     flag='v';
+  }else{
+    setErrorState((errorstate)=> ({ ...errorstate, 'peso': "" }));
   }
+
+
 
   if(flag==='f'){
     realizarCalculo(state.estatura, state.edad, state.peso, state.sexo);
@@ -74,22 +82,22 @@ const realizarCalculo = (estatura, edad, peso, sexo) => {
   const GC = (1.2 * (IMC)) + (0.23 * edad) - (var_dependiente_sexo * (sexo_number)) - 5.4
   setTipoGc(tipoGrasaCorporal(GC))
   setGc(GC.toFixed(2));
-  setErrorState((errorstate)=> ({ ...errorstate, estatura: "" }));
+  //setErrorState((errorstate)=> ({ estatura: "" }));
 }
 
 // Dejar los valores por defecto
 const resetValues = () =>{
 
   setState({
-    ['estatura']: 0,
-    ['sexo']: 'masculino',
-    ['edad']:0,
-    ['peso']: 0
+    'estatura': 0,
+    'sexo': 'masculino',
+    'edad':0,
+    'peso': 0
   })
 
   setGc(0);
   setTipoGc('');
-  //  Borramos todos los campos de error teniendo en cuenta solamente el primer campo
+  //  Borramos todos los campos con mensajes de error teniendo en cuenta solamente el primer campo
   setErrorState( { estatura: "" } );
   setErrorState( { edad: "" } );
   setErrorState( { peso: "" } );
@@ -209,7 +217,7 @@ const createForm = async () => {
         />
 
         {gc !=0 &&
-          <button onClick={()=>{createForm()}}>
+          <button onClick={()=>{createForm()}} style={{marginBottom:100}}>
           Descargar datos
           </button>
         }

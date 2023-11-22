@@ -12,6 +12,7 @@ import React from 'react'
                   aria-describedby="estaturaHelp"
                   onChange={e => onChange(e.target.value, 'estatura')}
                   value={estatura}
+                  min={0}
                   />
 
           <span className='text-danger'>{errorstate.estatura===''?  null : errorstate.estatura }</span>
@@ -24,6 +25,7 @@ import React from 'react'
                   aria-describedby="edadHelp"
                   onChange={e => onChange(e.target.value, 'edad')}
                   value={edad}
+                  min={0}
                   />
           <span className='text-danger'>{errorstate.edad===''?  null : errorstate.edad }</span>
         </div>
@@ -35,6 +37,7 @@ import React from 'react'
                   aria-describedby="edadHelp"
                   onChange={e => onChange(e.target.value, 'peso')}
                   value={peso}
+                  min={0}
                   />
             <span className='text-danger'>{errorstate.peso===''?  null : errorstate.peso }</span>
         </div>
